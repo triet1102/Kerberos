@@ -29,7 +29,7 @@ Once per user session:
 ## We have the following guidelines:
 * The identifiers of the clients, servers and TGS (IDc, IDv, IDtgs) as well as their secret keys (Kc, Kv and Ktgs) are letters, digits or punctuation symbols (see the table below).  
 * The address of the principals (ADc and ADv) is an IPv4 address represented as a string of characters (eg the string '10.34.251.3').  
-* The authentication server (AS) and the ticket granting server (TGS) consult a table containing the secret key of each of the principals. This table must be in a text file called **cles.txt** and contain, on each line, the identifier of a principal and its secret key, separated by a space.  
+* The authentication server (AS) and the ticket granting server (TGS) consult a table containing the secret key of each of the principals. This table must be in a text file called **keys.txt** and contain, on each line, the identifier of a principal and its secret key, separated by a space.  
 * The timestamps (TS1 and TS2) contain the POSIX time of the corresponding ticket.  
 * The durations (Duration1 and Duration2) are expressed in seconds relative to the timestamp of the ticket.  
 * The concatenation (||) operation will simply be the insertion of the space character between two fields.  
@@ -46,10 +46,10 @@ The encryption function E to be used is a special version of a shift cipher algo
 2. Client decrypt the encrypted message contains the Tickettgs:  
   **./client**
     **client_key message_encrypted**  
-3. A ticket granting server that must be called from the command line as follows:  
+3. A ticket granting server **(suppose this is server TGS1)** that must be called from the command line as follows:  
   **./tgt**  
     **IDc ADc IDv Tickettgs**  
-4. A server providing a service, which must be able to be called from the command line as follows:  
+4. A server providing a service **(suppose this is server V1)**, which must be able to be called from the command line as follows:  
   **./serveur**  
     **IDc ADc TicketV**  
 
