@@ -12,6 +12,4 @@ tgt:
 serveur: 
 	$(CC) $(CFLAGS) -o serveur serveur.c
 
-clean: 
-	$(RM) count *.o *~
 
